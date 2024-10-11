@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import getAnimalType from "./libs/animal-type"; // Should return both animal and traits
+import getAnimalType from "./libs/animal-type";
 import { useState } from "react";
 import calculateMBTI from "./libs/calculate-mbti";
 import { questions } from "./components/question-data";
@@ -10,10 +10,10 @@ function PersonalityQuiz() {
   const [result, setResult] = useState<{ mbti: string; animal: string; traits: string } | null>(null);
 
   const onSubmit = (data: any) => {
-    const mbti = calculateMBTI(data);
-    const { animal, traits } = getAnimalType(mbti); // Destructure animal and traits
-    setResult({ mbti, animal, traits }); // Set both animal and traits
-    console.log(`Your MBTI: ${mbti}, Animal: ${animal}, Traits: ${traits}`);
+    console.log("Form Data:", data); // 데이터가 제대로 전달되었는지 확인
+    const mbti = calculateMBTI(data); // 질문에 대한 응답 데이터를 사용하여 MBTI 계산
+    const { animal, traits } = getAnimalType(mbti); // MBTI 결과로 동물 및 특성 가져오기
+    setResult({ mbti, animal, traits });
   };
 
   return (
@@ -26,8 +26,8 @@ function PersonalityQuiz() {
             key={index}
             question={q.question}
             options={q.options}
-            registerName={register(q.name)}
-            questionNumber={index + 1} // Pass question number here
+            register={register}
+            name={q.name} // 각 질문에 고유한 이름을 전달
           />
         ))}
         <input type="submit" value="Submit" style={styles.submitButton} />

@@ -1,34 +1,19 @@
-import { useState } from "react";
-
-function Questions({ question, options, registerName }: any) {
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
-
-  const handleSelect = (value: string) => {
-    setSelectedOption(value);
-  };
-
+function Questions({ question, options, register, name }: any) {
   return (
     <div>
       <label>{question}</label>
       <div style={{ display: "flex", gap: "1rem", marginTop: "0.5rem" }}>
         {options.map((option: any) => (
-          <div
-            key={option.value}
-            onClick={() => handleSelect(option.value)}
-            style={{
-              padding: "1rem",
-              border: selectedOption === option.value ? "2px solid blue" : "1px solid gray",
-              borderRadius: "8px",
-              cursor: "pointer",
-              backgroundColor: selectedOption === option.value ? "#f0f8ff" : "white",
-            }}
-          >
+          <label key={option.value} style={{ cursor: "pointer" }}>
+            <input
+              type="radio"
+              value={option.value}
+              {...register(name, { required: true })} // register 직접 적용
+            />
             {option.label}
-          </div>
+          </label>
         ))}
       </div>
-      {/* Hidden input to capture the selection */}
-      <input type="hidden" value={selectedOption || ""} {...registerName} />
     </div>
   );
 }
