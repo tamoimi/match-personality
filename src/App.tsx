@@ -17,22 +17,27 @@ function PersonalityQuiz() {
   };
 
   return (
-    <div className="text-center text-indigo-700 font-Jura">
+    <div className="max-w-md m-auto my-10 text-center text-indigo-700 font-Jura">
       <h1 className="text-3xl text-gray-500">Find Your Animal Based on MBTI</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        {questions.map((q, index) => (
-          <Questions
-            key={index}
-            question={q.question}
-            options={q.options}
-            register={register}
-            name={q.name} // 각 질문에 고유한 이름을 전달
-          />
-        ))}
-        <input type="submit" value="Submit" />
-      </form>
-
-      {result && (
+      {!result ? (
+        <form onSubmit={handleSubmit(onSubmit)}>
+          {questions.map((q, index) => (
+            <Questions
+              key={index}
+              question={q.question}
+              options={q.options}
+              register={register}
+              name={q.name} // 각 질문에 고유한 이름을 전달
+            />
+          ))}
+          <button
+            type="submit"
+            className="w-full px-4 py-2 mt-5 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
+          >
+            Button
+          </button>
+        </form>
+      ) : (
         <div>
           <h2>Your MBTI Type: {result.mbti}</h2>
           <h3>Your Animal: {result.animal}</h3>
