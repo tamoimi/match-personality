@@ -1,8 +1,8 @@
 function Questions({ question, options, register, name }: any) {
   return (
-    <div>
-      <label>{question}</label>
-      <div style={{ display: "flex", gap: "1rem", marginTop: "0.5rem" }}>
+    <div className="mt-8">
+      <label className="font-semibold ">{question}</label>
+      <div className="">
         {options.map((option: any) => (
           <label key={option.value} style={{ cursor: "pointer" }}>
             <input
