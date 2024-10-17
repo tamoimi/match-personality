@@ -2,13 +2,14 @@ function Questions({ question, options, register, name }: any) {
   return (
     <div className="mt-8">
       <label className="font-semibold ">{question}</label>
-      <div className="">
+      <div className="flex gap-4">
         {options.map((option: any) => (
-          <label key={option.value} style={{ cursor: "pointer" }}>
+          <label key={option.value} className="p-2 text-sm border rounded-md cursor-pointer">
             <input
               type="radio"
               value={option.value}
               {...register(name, { required: true })} // register 직접 적용
+              className="mr-2"
             />
             {option.label}
           </label>
