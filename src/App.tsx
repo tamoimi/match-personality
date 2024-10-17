@@ -17,8 +17,8 @@ function PersonalityQuiz() {
   };
 
   return (
-    <div className="max-w-md m-auto my-10 text-center text-indigo-700 font-Jura">
-      <h1 className="text-3xl text-gray-500">Find Your Animal Based on MBTI</h1>
+    <div className="max-w-md m-auto my-10 text-center font-Poppins">
+      <h1 className="text-3xl font-medium">Find Your Animal Based on MBTI</h1>
       {!result ? (
         <form onSubmit={handleSubmit(onSubmit)}>
           {questions.map((q, index) => (
