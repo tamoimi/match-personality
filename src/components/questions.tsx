@@ -1,4 +1,11 @@
-function Questions({ question, options, register, name }: any) {
+interface Props {
+  question: string;
+  options: any;
+  register: any;
+  name: string;
+}
+
+function Questions({ question, options, register, name }: Props) {
   return (
     <div className="mt-8">
       <label className="font-semibold ">{question}</label>
