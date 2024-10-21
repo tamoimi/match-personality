@@ -10,7 +10,6 @@ function PersonalityQuiz() {
   const [result, setResult] = useState<{ mbti: string; animal: string; traits: string } | null>(null);
 
   const onSubmit = (data: any) => {
-    console.log("Form Data:", data); // 데이터가 제대로 전달되었는지 확인
     const mbti = calculateMBTI(data); // 질문에 대한 응답 데이터를 사용하여 MBTI 계산
     const { animal, traits } = getAnimalType(mbti); // MBTI 결과로 동물 및 특성 가져오기
     setResult({ mbti, animal, traits });
