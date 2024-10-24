@@ -56,7 +56,7 @@ function PersonalityQuiz() {
 
           <button
             type="submit"
-            className="w-full px-4 py-2 mt-5 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
+            className="w-full px-4 py-2 mt-5 font-bold text-white rounded bg-stone-500 hover:bg-stone-600"
           >
             Submit
           </button>
