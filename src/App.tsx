@@ -61,7 +61,7 @@ function PersonalityQuiz() {
   };
 
   return (
-    <div className="max-w-xl m-auto my-10 text-center font-Poppins">
+    <div className="max-w-xl px-6 m-auto my-10 text-center font-Poppins">
       <h1 className="mb-6 text-3xl font-medium">Find Your Animal Based on MBTI</h1>
 
       {/* Progress 컴포넌트에 동적 값 전달 */}
