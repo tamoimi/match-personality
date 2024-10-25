@@ -1,21 +1,29 @@
-import { useForm } from "react-hook-form";
-import getAnimalType from "./libs/animal-type";
 import { useState } from "react";
-import calculateMBTI from "./libs/calculate-mbti";
+import { useForm } from "react-hook-form";
 import { questions } from "./components/question-data";
 import Questions from "./components/questions";
+import { Button } from "./components/ui/button";
 import { Progress } from "./components/ui/progress";
+import getAnimalType from "./libs/animal-type";
+import calculateMBTI from "./libs/calculate-mbti";
 
 function PersonalityQuiz() {
-  // useForm에 defaultValues를 설정해 모든 질문의 기본값을 미리 제공
+  // ===================================================================================================================
+  // state
+  // ===================================================================================================================
+  // current question index
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [result, setResult] = useState<{ mbti: string; animal: string; traits: string } | null>(null);
+
+  // ===================================================================================================================
+  // react-hook-form
+  // ===================================================================================================================
   const { register, handleSubmit, watch } = useForm({
     defaultValues: questions.reduce((acc, curr) => {
       acc[curr.name] = "";
       return acc;
     }, {} as { [key: string]: string }),
   });
-
-  const [result, setResult] = useState<{ mbti: string; animal: string; traits: string } | null>(null);
 
   // 총 질문 수
   const totalQuestions = questions.length;
@@ -35,6 +43,23 @@ function PersonalityQuiz() {
     setResult({ mbti, animal, traits });
   };
 
+  const handleNextQuestion = () => {
+    // 현재 질문에 대한 응답이 없으면 다음으로 넘어가지 않음
+    if (watchAnswers[questions[currentQuestion].name] === "") {
+      return;
+    }
+
+    if (currentQuestion < totalQuestions - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+    }
+  };
+
+  const handlePreviousQuestion = () => {
+    if (currentQuestion > 0) {
+      setCurrentQuestion(currentQuestion - 1);
+    }
+  };
+
   return (
     <div className="max-w-xl m-auto my-10 text-center font-Poppins">
       <h1 className="mb-6 text-3xl font-medium">Find Your Animal Based on MBTI</h1>
@@ -44,28 +69,37 @@ function PersonalityQuiz() {
 
       {!result ? (
         <form onSubmit={handleSubmit(onSubmit)}>
-          {questions.map((q, index) => (
-            <Questions
-              key={index}
-              question={q.question}
-              options={q.options}
-              register={register}
-              name={q.name} // 각 질문에 고유한 이름을 전달
-            />
-          ))}
+          <Questions
+            question={questions[currentQuestion].question}
+            options={questions[currentQuestion].options}
+            register={register}
+            name={questions[currentQuestion].name} // 현재 질문에 고유한 이름 전달
+          />
 
-          <button
-            type="submit"
-            className="w-full px-4 py-2 mt-5 font-bold text-white rounded bg-stone-500 hover:bg-stone-600"
-          >
-            Submit
-          </button>
+          <div className="flex justify-between mt-5">
+            <Button
+              type="button"
+              onClick={handlePreviousQuestion}
+              //className="px-4 py-2 font-bold text-white bg-gray-400 rounded hover:bg-gray-500"
+              disabled={currentQuestion === 0}
+            >
+              Previous
+            </Button>
+
+            {currentQuestion === totalQuestions - 1 ? (
+              <Button type="submit">Submit</Button>
+            ) : (
+              <Button type="button" onClick={handleNextQuestion}>
+                Next
+              </Button>
+            )}
+          </div>
         </form>
       ) : (
-        <div>
-          <h2>Your MBTI Type: {result.mbti}</h2>
+        <div className="mt-3">
+          <h2>Your MBTI Type: {result.mbti} ✨</h2>
           <h3>Your Animal: {result.animal}</h3>
-          <p>{result.traits}</p>
+          <p className="p-3 mt-3 border rounded-md border-stone-300">{result.traits}</p>
         </div>
       )}
     </div>
