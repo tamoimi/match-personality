@@ -74,6 +74,7 @@ function PersonalityQuiz() {
             options={questions[currentQuestion].options}
             register={register}
             name={questions[currentQuestion].name} // 현재 질문에 고유한 이름 전달
+            watch={watch} 
           />
 
           <div className="flex justify-between mt-5">
