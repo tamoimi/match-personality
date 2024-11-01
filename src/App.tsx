@@ -100,7 +100,7 @@ function PersonalityQuiz() {
         <div className="mt-3">
           <h2>Your MBTI Type: {result.mbti} ✨</h2>
           <h3>Your Animal: {result.animal}</h3>
-          <p className="p-3 mt-3 border rounded-md border-stone-300">{result.traits}</p>
+          <p className="p-3 mt-3 border rounded-md border-stone-300 bg-stone-100">{result.traits}</p>
         </div>
       )}
     </div>
