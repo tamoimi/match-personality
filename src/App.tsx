@@ -6,8 +6,14 @@ import { Button } from "./components/ui/button";
 import { Progress } from "./components/ui/progress";
 import getAnimalType from "./libs/animal-type";
 import calculateMBTI from "./libs/calculate-mbti";
+import { useTranslation } from "react-i18next";
 
 function PersonalityQuiz() {
+  // ===================================================================================================================
+  // language handler
+  // ===================================================================================================================
+  const { t, i18n } = useTranslation();
+
   // ===================================================================================================================
   // state
   // ===================================================================================================================
@@ -60,9 +66,18 @@ function PersonalityQuiz() {
     }
   };
 
+
   return (
     <div className="max-w-xl px-6 m-auto my-10 text-center font-Poppins">
-      <h1 className="mb-6 text-3xl font-medium">Find Your Animal Based on MBTI</h1>
+      {t("header.chooseLanguage")}
+      <Button onClick={() => i18n.changeLanguage("en")}>EN</Button>
+      <Button onClick={() => i18n.changeLanguage("ko")}>KR</Button>
+
+      <h1 className="mb-6 text-3xl font-medium">
+        Find Your Animal Based on MBTI
+        <br />
+        {t("mainSection.title")}
+      </h1>
 
       {/* Progress 컴포넌트에 동적 값 전달 */}
       <Progress value={progressValue} />
@@ -74,7 +89,7 @@ function PersonalityQuiz() {
             options={questions[currentQuestion].options}
             register={register}
             name={questions[currentQuestion].name} // 현재 질문에 고유한 이름 전달
-            watch={watch} 
+            watch={watch}
           />
 
           <div className="flex justify-between mt-5">
