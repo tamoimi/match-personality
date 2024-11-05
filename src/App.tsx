@@ -7,12 +7,13 @@ import { Progress } from "./components/ui/progress";
 import getAnimalType from "./libs/animal-type";
 import calculateMBTI from "./libs/calculate-mbti";
 import { useTranslation } from "react-i18next";
+import LanguageBar from "./main-page/components/language-bar";
 
 function PersonalityQuiz() {
   // ===================================================================================================================
   // language handler
   // ===================================================================================================================
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   // ===================================================================================================================
   // state
@@ -66,59 +67,55 @@ function PersonalityQuiz() {
     }
   };
 
-
   return (
-    <div className="max-w-xl px-6 m-auto my-10 text-center font-Poppins">
-      {t("header.chooseLanguage")}
-      <Button onClick={() => i18n.changeLanguage("en")}>EN</Button>
-      <Button onClick={() => i18n.changeLanguage("ko")}>KR</Button>
-
-      <h1 className="mb-6 text-3xl font-medium">
-        Find Your Animal Based on MBTI
-        <br />
-        {t("mainSection.title")}
-      </h1>
-
-      {/* Progress 컴포넌트에 동적 값 전달 */}
-      <Progress value={progressValue} />
-
-      {!result ? (
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <Questions
-            question={questions[currentQuestion].question}
-            options={questions[currentQuestion].options}
-            register={register}
-            name={questions[currentQuestion].name} // 현재 질문에 고유한 이름 전달
-            watch={watch}
-          />
-
-          <div className="flex justify-between mt-5">
-            <Button
-              type="button"
-              onClick={handlePreviousQuestion}
-              //className="px-4 py-2 font-bold text-white bg-gray-400 rounded hover:bg-gray-500"
-              disabled={currentQuestion === 0}
-            >
-              Previous
-            </Button>
-
-            {currentQuestion === totalQuestions - 1 ? (
-              <Button type="submit">Submit</Button>
-            ) : (
-              <Button type="button" onClick={handleNextQuestion}>
-                Next
-              </Button>
-            )}
-          </div>
-        </form>
-      ) : (
-        <div className="mt-3">
-          <h2>Your MBTI Type: {result.mbti} ✨</h2>
-          <h3>Your Animal: {result.animal}</h3>
-          <p className="p-3 mt-3 border rounded-md border-stone-300 bg-stone-100">{result.traits}</p>
+    <>
+      <div className="max-w-xl px-6 m-auto my-10 text-center font-Poppins">
+        <div className="flex justify-end mb-3">
+          <LanguageBar />
         </div>
-      )}
-    </div>
+        <h1 className="mb-6 text-2xl font-medium">{t("mainSection.title")}</h1>
+
+        {/* Progress 컴포넌트에 동적 값 전달 */}
+        <Progress value={progressValue} />
+
+        {!result ? (
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Questions
+              question={questions[currentQuestion].question}
+              options={questions[currentQuestion].options}
+              register={register}
+              name={questions[currentQuestion].name} // 현재 질문에 고유한 이름 전달
+              watch={watch}
+            />
+
+            <div className="flex justify-between mt-5">
+              <Button
+                type="button"
+                onClick={handlePreviousQuestion}
+                //className="px-4 py-2 font-bold text-white bg-gray-400 rounded hover:bg-gray-500"
+                disabled={currentQuestion === 0}
+              >
+                Previous
+              </Button>
+
+              {currentQuestion === totalQuestions - 1 ? (
+                <Button type="submit">Submit</Button>
+              ) : (
+                <Button type="button" onClick={handleNextQuestion}>
+                  Next
+                </Button>
+              )}
+            </div>
+          </form>
+        ) : (
+          <div className="mt-3">
+            <h2>Your MBTI Type: {result.mbti} ✨</h2>
+            <h3>Your Animal: {result.animal}</h3>
+            <p className="p-3 mt-3 border rounded-md border-stone-300 bg-stone-100">{result.traits}</p>
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 
