@@ -25,7 +25,7 @@ function PersonalityQuiz() {
   // ===================================================================================================================
   // react-hook-form
   // ===================================================================================================================
-  const { register, handleSubmit, watch } = useForm({
+  const { register, handleSubmit, watch, control } = useForm({
     defaultValues: questions.reduce((acc, curr) => {
       acc[curr.name] = "";
       return acc;
@@ -86,6 +86,7 @@ function PersonalityQuiz() {
               register={register}
               name={questions[currentQuestion].name} // 현재 질문에 고유한 이름 전달
               watch={watch}
+              control={control}
             />
 
             <div className="flex justify-between mt-5">
