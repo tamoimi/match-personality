@@ -65,7 +65,7 @@ function PersonalityQuiz() {
 
   return (
     <>
-      <div className="max-w-xl px-6 m-auto my-10 text-center font-Poppins">
+      <div className="max-w-xl m-auto my-10 text-center font-Poppins">
         {/* Progress 컴포넌트에 동적 값 전달 */}
         <Progress value={progressValue} />
 
