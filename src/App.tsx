@@ -22,7 +22,7 @@ function MainPage() {
       </div>
       <h1 className="mb-6 text-2xl font-medium">{t("mainSection.title")}</h1>
 
-      <div className="px-12 m-auto my-10 text-center ">
+      <div className="m-auto my-10 text-center ">
         {!showQuiz ? (
           <div className="flex flex-col items-center">
             <p className="mb-8 text-sm whitespace-pre-line">{t("mainSection.description")}</p>
