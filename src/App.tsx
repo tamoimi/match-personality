@@ -18,7 +18,7 @@ function MainPage() {
   return (
     <div className="max-w-xl px-6 m-auto my-10 text-center font-Poppins">
       <div className="flex justify-end mb-3">
-        <LanguageBar />
+        <LanguageBar /> 
       </div>
       <h1 className="mb-6 text-2xl font-medium">{t("mainSection.title")}</h1>
 

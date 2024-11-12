@@ -1,85 +1,74 @@
-function getAnimalType(mbti: string) {
+function getAnimalType(mbti: string, t: any) {
   const animalMappings: { [key: string]: { animal: string; traits: string } } = {
     INTJ: {
-      animal: "Owl 🦉",
-      traits:
-        "Strategic, Insightful, Independent. Owls are known for their wisdom and calculated thinking, much like INTJs.",
+      animal: t("animalMappings.INTJ.animal"),
+      traits: t("animalMappings.INTJ.traits"),
     },
     ENTP: {
-      animal: "Fox 🦊",
-      traits: "Quick-witted, Adaptable, Curious. Foxes represent the ENTP's love for innovation and clever solutions.",
+      animal: t("animalMappings.ENTP.animal"),
+      traits: t("animalMappings.ENTP.traits"),
     },
     ESFP: {
-      animal: "Parrot 🦜",
-      traits:
-        "Energetic, Sociable, Fun-loving. Like parrots, ESFPs enjoy being the center of attention and bringing joy to others.",
+      animal: t("animalMappings.ESFP.animal"),
+      traits: t("animalMappings.ESFP.traits"),
     },
     ISFP: {
-      animal: "Deer 🦌",
-      traits:
-        "Gentle, Creative, Sensitive. ISFPs are much like deer, appreciating beauty and living peacefully in the moment.",
+      animal: t("animalMappings.ISFP.animal"),
+      traits: t("animalMappings.ISFP.traits"),
     },
     INFP: {
-      animal: "Dolphin 🐬",
-      traits:
-        "Idealistic, Compassionate, Imaginative. Dolphins, like INFPs, are known for their empathy and deep emotional connection to others.",
+      animal: t("animalMappings.INFP.animal"),
+      traits: t("animalMappings.INFP.traits"),
     },
     ESTJ: {
-      animal: "Lion 🦁",
-      traits:
-        "Confident, Organized, Strong-willed. Lions represent ESTJs’ leadership qualities and their love for structure.",
+      animal: t("animalMappings.ESTJ.animal"),
+      traits: t("animalMappings.ESTJ.traits"),
     },
     INFJ: {
-      animal: "Wolf 🐺",
-      traits:
-        "Loyal, Visionary, Empathetic. Wolves, like INFJs, are driven by a deep sense of purpose and loyalty to their group.",
+      animal: t("animalMappings.INFJ.animal"),
+      traits: t("animalMappings.INFJ.traits"),
     },
     ISTJ: {
-      animal: "Elephant 🐘",
-      traits: "Responsible, Practical, Loyal. Elephants embody the ISTJ’s dedication and strong sense of duty.",
+      animal: t("animalMappings.ISTJ.animal"),
+      traits: t("animalMappings.ISTJ.traits"),
     },
     ENFP: {
-      animal: "Butterfly 🦋",
-      traits:
-        "Creative, Enthusiastic, Free-spirited. Butterflies symbolize the ENFP's adaptability and passion for new experiences.",
+      animal: t("animalMappings.ENFP.animal"),
+      traits: t("animalMappings.ENFP.traits"),
     },
     ESTP: {
-      animal: "Tiger 🐯",
-      traits:
-        "Bold, Energetic, Action-oriented. Tigers reflect the ESTP's natural inclination for taking risks and seizing opportunities.",
+      animal: t("animalMappings.ESTP.animal"),
+      traits: t("animalMappings.ESTP.traits"),
     },
     ISTP: {
-      animal: "Panther 🐆",
-      traits:
-        "Analytical, Independent, Calm under pressure. Panthers, like ISTPs, are known for their stealth and quick, decisive actions.",
+      animal: t("animalMappings.ISTP.animal"),
+      traits: t("animalMappings.ISTP.traits"),
     },
     ENTJ: {
-      animal: "Eagle 🦅",
-      traits:
-        "Decisive, Strategic, Visionary. Eagles represent the ENTJ’s drive to achieve and their ability to lead from a high-level perspective.",
+      animal: t("animalMappings.ENTJ.animal"),
+      traits: t("animalMappings.ENTJ.traits"),
     },
     ISFJ: {
-      animal: "Koala 🐨",
-      traits:
-        "Caring, Protective, Reliable. Koalas, like ISFJs, are nurturing and dedicated to taking care of those around them.",
+      animal: t("animalMappings.ISFJ.animal"),
+      traits: t("animalMappings.ISFJ.traits"),
     },
     ESFJ: {
-      animal: "Dog 🐶",
-      traits: "Friendly, Loyal, Outgoing. Dogs embody the ESFJ’s need to care for and support others.",
+      animal: t("animalMappings.ESFJ.animal"),
+      traits: t("animalMappings.ESFJ.traits"),
     },
     ENFJ: {
-      animal: "Horse 🐴",
-      traits:
-        "Charismatic, Passionate, Altruistic. Horses reflect the ENFJ’s ability to inspire others with their positive energy.",
+      animal: t("animalMappings.ENFJ.animal"),
+      traits: t("animalMappings.ENFJ.traits"),
     },
     INTP: {
-      animal: "Octopus 🐙",
-      traits:
-        "Intellectual, Curious, Innovative. Octopuses are known for their intelligence and problem-solving abilities, much like INTPs.",
+      animal: t("animalMappings.INTP.animal"),
+      traits: t("animalMappings.INTP.traits"),
     },
   };
 
-  return animalMappings[mbti] || { animal: "Unknown Animal", traits: "Traits not available." };
+  return (
+    animalMappings[mbti] || { animal: t("animalMappings.default.animal"), traits: t("animalMappings.default.traits") }
+  );
 }
 
 export default getAnimalType;
