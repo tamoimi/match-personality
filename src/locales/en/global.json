@@ -3,5 +3,133 @@
     "title": "Find Your Animal Based on MBTI 🫧",
     "start": "Let's start!",
     "description": "Take this fun and insightful personality quiz to find out which animal best matches your personality!\n \n Answer a series of questions that explore your preferences and traits, and discover your spirit animal based on your unique MBTI type.\n \nWhether you're an analytical owl, a playful dolphin, or a bold lion, this quiz will reveal your true nature in an engaging way."
+  },
+  "question": {
+    "first": "You’ve won a free weekend trip to a dream destination! How do you plan your trip?",
+    "second": "You walk into a room full of people you don’t know. What’s your next move?",
+    "third": "A big event just got canceled last minute. How do you feel?",
+    "fourth": "Imagine you’re baking a cake for the first time. How do you approach the recipe?",
+    "fifth": "You’re given a mystery box. What’s inside?",
+    "sixth": "You’re planning a vacation. What excites you most about the trip?",
+    "seventh": "You’re the captain of a sinking ship. How do you handle the situation?",
+    "eighth": "A friend is asking for advice on a difficult decision. What’s your approach?",
+    "ninth": "You’re in the middle of a team debate. What role do you take?",
+    "tenth": "You’re on a road trip. How do you handle the journey?",
+    "eleventh": "You’re working on a big project due next month. How do you get it done?",
+    "twelfth": "You’re having dinner at a new restaurant. How do you order?"
+  },
+  "options_01": {
+    "first": "I invite a group of friends, the more the merrier!",
+    "second": "I’m thinking a peaceful solo retreat sounds perfect."
+  },
+  "options_02": {
+    "first": "I’ll introduce myself to as many people as I can and get the conversation flowing.",
+    "second": "I’ll find a corner or a familiar face and ease into the scene."
+  },
+  "options_03": {
+    "first": "Disappointed, I was looking forward to all the socializing!",
+    "second": "Secretly relieved—I’ve got some alone time now."
+  },
+  "options_04": {
+    "first": "I’ll follow the recipe step-by-step, measuring everything carefully.",
+    "second": "I might tweak the ingredients and see what happens—creativity is key!"
+  },
+  "options_05": {
+    "first": "I’d say something practical and useful, like a set of tools or kitchen gadgets.",
+    "second": "Probably something quirky or symbolic, like a puzzle or an artifact with hidden meaning."
+  },
+  "options_06": {
+    "first": "The specific activities and sights I can see, like famous landmarks and local dishes.",
+    "second": "The adventure of not knowing what’s next and finding hidden gems along the way."
+  },
+  "options_07": {
+    "first": "I’ll stay calm, assess the situation logically, and figure out the best way to get everyone to safety.",
+    "second": "I’ll make sure everyone is okay emotionally and try to reassure them while planning our escape."
+  },
+  "options_08": {
+    "first": "I help them weigh the pros and cons to figure out the most rational choice.",
+    "second": "I focus on how they feel about each option and what will make them happiest."
+  },
+  "options_09": {
+    "first": "I focus on the facts, making sure the most logical argument wins.",
+    "second": "I try to understand everyone’s viewpoint and find a solution that keeps harmony in the group."
+  },
+  "options_10": {
+    "first": "I’ve got a planned route, with stops and activities all figured out ahead of time.",
+    "second": "I’ll see where the road takes me—spontaneous detours are the best part of any trip!"
+  },
+  "options_11": {
+    "first": "I break it into steps and start working well in advance to avoid any last-minute stress.",
+    "second": "I’ll keep it flexible, maybe pull a few late nights near the deadline when inspiration hits."
+  },
+  "options_12": {
+    "first": "I check out the menu beforehand, know exactly what I want when I sit down.",
+    "second": "I decide when I get there, maybe even ask for the server’s recommendation or try something unexpected."
+  },
+  "animalMappings": {
+    "INTJ": {
+      "animal": "Owl 🦉",
+      "traits": "Strategic, Insightful, Independent. Owls are known for their wisdom and calculated thinking, much like INTJs."
+    },
+    "ENTP": {
+      "animal": "Fox 🦊",
+      "traits": "Quick-witted, Adaptable, Curious. Foxes represent the ENTP's love for innovation and clever solutions."
+    },
+    "ESFP": {
+      "animal": "Parrot 🦜",
+      "traits": "Energetic, Sociable, Fun-loving. Like parrots, ESFPs enjoy being the center of attention and bringing joy to others."
+    },
+    "ISFP": {
+      "animal": "Deer 🦌",
+      "traits": "Gentle, Creative, Sensitive. ISFPs are much like deer, appreciating beauty and living peacefully in the moment."
+    },
+    "INFP": {
+      "animal": "Dolphin 🐬",
+      "traits": "Idealistic, Compassionate, Imaginative. Dolphins, like INFPs, are known for their empathy and deep emotional connection to others."
+    },
+    "ESTJ": {
+      "animal": "Lion 🦁",
+      "traits": "Confident, Organized, Strong-willed. Lions represent ESTJs’ leadership qualities and their love for structure."
+    },
+    "INFJ": {
+      "animal": "Wolf 🐺",
+      "traits": "Loyal, Visionary, Empathetic. Wolves, like INFJs, are driven by a deep sense of purpose and loyalty to their group."
+    },
+    "ISTJ": {
+      "animal": "Elephant 🐘",
+      "traits": "Responsible, Practical, Loyal. Elephants embody the ISTJ’s dedication and strong sense of duty."
+    },
+    "ENFP": {
+      "animal": "Butterfly 🦋",
+      "traits": "Creative, Enthusiastic, Free-spirited. Butterflies symbolize the ENFP's adaptability and passion for new experiences."
+    },
+    "ESTP": {
+      "animal": "Tiger 🐯",
+      "traits": "Bold, Energetic, Action-oriented. Tigers reflect the ESTP's natural inclination for taking risks and seizing opportunities."
+    },
+    "ISTP": {
+      "animal": "Panther 🐆",
+      "traits": "Analytical, Independent, Calm under pressure. Panthers, like ISTPs, are known for their stealth and quick, decisive actions."
+    },
+    "ENTJ": {
+      "animal": "Eagle 🦅",
+      "traits": "Decisive, Strategic, Visionary. Eagles represent the ENTJ’s drive to achieve and their ability to lead from a high-level perspective."
+    },
+    "ISFJ": {
+      "animal": "Koala 🐨",
+      "traits": "Caring, Protective, Reliable. Koalas, like ISFJs, are nurturing and dedicated to taking care of those around them."
+    },
+    "ESFJ": {
+      "animal": "Dog 🐶",
+      "traits": "Friendly, Loyal, Outgoing. Dogs embody the ESFJ’s need to care for and support others."
+    },
+    "ENFJ": {
+      "animal": "Horse 🐴",
+      "traits": "Charismatic, Passionate, Altruistic. Horses reflect the ENFJ’s ability to inspire others with their positive energy."
+    },
+    "INTP": {
+      "animal": "Octopus 🐙",
+      "traits": "Intellectual, Curious, Innovative. Octopuses are known for their intelligence and problem-solving abilities, much like INTPs."
+    }
   }
 }
