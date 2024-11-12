@@ -2,10 +2,11 @@ import getAnimalType from "@/libs/animal-type";
 import calculateMBTI from "@/libs/calculate-mbti";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { questions } from "./question-data";
+import { useTranslatedQuestions } from "./question-data";
 import Questions from "./questions";
 import { Button } from "./ui/button";
 import { Progress } from "./ui/progress";
+import { useTranslation } from "react-i18next";
 
 function PersonalityQuiz() {
   // ===================================================================================================================
@@ -14,6 +15,10 @@ function PersonalityQuiz() {
   // current question index
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [result, setResult] = useState<{ mbti: string; animal: string; traits: string } | null>(null);
+
+  const questions = useTranslatedQuestions();
+
+  const { t } = useTranslation(); // 번역 함수 가져오기
 
   // ===================================================================================================================
   // react-hook-form
@@ -39,7 +44,7 @@ function PersonalityQuiz() {
 
   const onSubmit = (data: any) => {
     const mbti = calculateMBTI(data); // 질문에 대한 응답 데이터를 사용하여 MBTI 계산
-    const { animal, traits } = getAnimalType(mbti); // MBTI 결과로 동물 및 특성 가져오기
+    const { animal, traits } = getAnimalType(mbti, t); // MBTI 결과로 동물 및 특성 가져오기
     setResult({ mbti, animal, traits });
   };
 
