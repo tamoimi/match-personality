@@ -8,7 +8,7 @@ import { Button } from "./ui/button";
 import { Progress } from "./ui/progress";
 import { useTranslation } from "react-i18next";
 
-function PersonalityQuiz() {
+function PersonalityQuiz({ onRestart }: { onRestart: () => void }) {
   // ===================================================================================================================
   // state
   // ===================================================================================================================
@@ -23,7 +23,7 @@ function PersonalityQuiz() {
   // ===================================================================================================================
   // react-hook-form
   // ===================================================================================================================
-  const { register, handleSubmit, watch } = useForm({
+  const { register, handleSubmit, watch, reset } = useForm({
     defaultValues: questions.reduce((acc, curr) => {
       acc[curr.name] = "";
       return acc;
@@ -68,6 +68,13 @@ function PersonalityQuiz() {
     }
   };
 
+  const handleRestartQuiz = () => {
+    reset(); // form 초기화
+    setCurrentQuestion(0); // 질문 index 초기화
+    setResult(null); // 결과 초기화
+    onRestart(); // 메인 화면으로 돌아가기
+  };
+
   return (
     <>
       <div className="max-w-xl m-auto my-10 text-center font-Poppins">
@@ -108,6 +115,9 @@ function PersonalityQuiz() {
             <h2>Your MBTI Type: {result.mbti} ✨</h2>
             <h3>Your Animal: {result.animal}</h3>
             <p className="p-3 mt-3 border rounded-md border-stone-300 bg-stone-100">{result.traits}</p>
+            <Button onClick={handleRestartQuiz} className="w-full mt-10">
+              {t("quizSection.restart")}
+            </Button>
           </div>
         )}
       </div>
