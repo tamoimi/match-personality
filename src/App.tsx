@@ -33,6 +33,7 @@ function MainPage() {
             <Button onClick={handleStartQuiz} className="w-full">
               {t("mainSection.start")}
             </Button>
+            <p className="mt-3 text-xs">made by Tami 🎲</p>
           </div>
         ) : (
           <PersonalityQuiz onRestart={handleRestart} />
