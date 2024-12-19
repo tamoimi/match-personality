@@ -18,7 +18,8 @@ function PersonalityQuiz({ onRestart }: { onRestart: () => void }) {
 
   const questions = useTranslatedQuestions();
 
-  const { t } = useTranslation(); // 번역 함수 가져오기
+  // i18next
+  const { t } = useTranslation();
 
   // ===================================================================================================================
   // react-hook-form
@@ -30,7 +31,7 @@ function PersonalityQuiz({ onRestart }: { onRestart: () => void }) {
     }, {} as { [key: string]: string }),
   });
 
-  // 총 질문 수
+  // total questions
   const totalQuestions = questions.length;
 
   // watch를 사용하여 각 질문의 응답 상태를 감시
@@ -69,10 +70,10 @@ function PersonalityQuiz({ onRestart }: { onRestart: () => void }) {
   };
 
   const handleRestartQuiz = () => {
-    reset(); // form 초기화
-    setCurrentQuestion(0); // 질문 index 초기화
-    setResult(null); // 결과 초기화
-    onRestart(); // 메인 화면으로 돌아가기
+    reset(); // reset form
+    setCurrentQuestion(0); // reset question index
+    setResult(null); // reset result
+    onRestart(); // back to main page
   };
 
   return (

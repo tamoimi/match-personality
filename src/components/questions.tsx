@@ -12,6 +12,7 @@ interface Props {
 }
 
 function Questions({ question, options, register, name, watch }: Props) {
+  // watch for name
   const selectedValue = watch(name);
 
   return (

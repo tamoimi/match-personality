@@ -11,12 +11,13 @@ function MainPage() {
   const { t } = useTranslation();
   const [showQuiz, setShowQuiz] = useState(false);
 
+  // handlers
   const handleStartQuiz = () => {
     setShowQuiz(true);
   };
 
   const handleRestart = () => {
-    setShowQuiz(false); // 메인 화면으로 돌아가기
+    setShowQuiz(false);
   };
 
   return (
